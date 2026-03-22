@@ -1,0 +1,50 @@
+Tester Name,Student ID
+"1","2"
+
+Sequence Number,Action Taken,Time Elapsed (Seconds)
+1,"Test Started",0.00
+2,"Hovered Preview Tooltip: 263670",0.20
+3,"Hovered Preview Tooltip: 263080",0.23
+4,"Hovered Preview Tooltip: 263002",0.31
+5,"Hovered Preview Tooltip: 263001",0.58
+6,"Added to Shortlist: Job 263001",2.41
+7,"Removed from Shortlist: Job 263001",2.82
+8,"Returned to Job List",3.58
+9,"Sidebar: On-Campus Jobs",3.58
+10,"Sidebar: Dashboard",4.55
+11,"Returned to Job List",5.23
+12,"Sidebar: On-Campus Jobs",5.23
+13,"Returned to Job List",5.42
+14,"Sidebar: On-Campus Jobs",5.42
+15,"Hovered Preview Tooltip: 263001",7.44
+16,"Focused Search Bar",8.92
+17,"Hovered Preview Tooltip: 263001",9.31
+18,"Hovered Preview Tooltip: 263001",9.55
+19,"Hovered Preview Tooltip: 263001",10.66
+20,"Hovered Preview Tooltip: 263001",11.52
+21,"Hovered Preview Tooltip: 263001",11.80
+22,"Hovered Preview Tooltip: 263002",12.41
+23,"Hovered Preview Tooltip: 263002",12.82
+24,"Hovered Preview Tooltip: 263080",14.96
+25,"Focused Search Bar",16.91
+26,"Searched: "https://asmedigitalcollection.asme.org/mechanismsrobotics/article-abstract/1/1/011005/432294/discretely-deformable-surface-based-on-mechanical"",18.55
+27,"Focused Search Bar",19.16
+28,"Cleared Search Bar",21.44
+29,"Hovered Preview Tooltip: 263001",23.40
+30,"Hovered Preview Tooltip: 263707",25.43
+31,"Added to Shortlist: Job 263002",26.60
+32,"Removed from Shortlist: Job 263002",26.99
+33,"Added to Shortlist: Job 263017",28.19
+34,"Added to Shortlist: Job 263020",29.12
+35,"Hovered Preview Tooltip: 263080",29.63
+36,"Hovered Preview Tooltip: 263002",29.70
+37,"Hovered Preview Tooltip: 263001",31.26
+38,"Opened Full Job Page: 263001",31.39
+39,"Added to Shortlist: Job 263001",32.22
+40,"Removed from Shortlist: Job 263001",32.77
+41,"Added to Shortlist: Job 263001",34.81
+42,"Removed from Shortlist: Job 263001",35.19
+43,"Clicked Apply on Job Page",35.63
+44,"Returned to Job List",38.27
+45,"Hovered Preview Tooltip: 263001",39.03
+46,"Test Ended",40.37
