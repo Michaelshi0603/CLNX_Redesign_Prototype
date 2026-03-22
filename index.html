@@ -321,7 +321,6 @@
             });
         }
 
-        // FIX 4: Tooltip Logic
         function showTooltip(e, jobId) {
             const job = jobsData.find(j => j.id === jobId);
             const tooltip = document.getElementById('hover-tooltip');
@@ -334,7 +333,7 @@
             `;
             
             tooltip.style.display = 'block';
-            moveTooltip(e); // position it immediately
+            moveTooltip(e);
             logAction(`Hovered Preview Tooltip: ${jobId}`);
         }
 
@@ -359,7 +358,6 @@
             renderTable(filteredData);
         }
 
-        // FIX 2: Handle empty search bar automatically
         function handleSearchInput() {
             const query = document.getElementById('search-input').value;
             if (query.trim() === '') {
@@ -368,11 +366,10 @@
             }
         }
 
-        // FIX 3: Reset View from Sidebar
         function resetToHome() {
             document.getElementById('search-input').value = '';
             closeJobPage();
-            searchJobs(); // Re-renders all jobs
+            searchJobs();
         }
 
         function toggleFilters() {
@@ -381,23 +378,21 @@
             logAction(filterDiv.style.display === "grid" ? "Opened Advanced Filters" : "Closed Advanced Filters");
         }
 
-        // --- 3. SHORTLIST LOGIC (Table & Page Sync) ---
+        // --- 3. SHORTLIST LOGIC ---
         function toggleShortlist(jobId) {
             const jobIndex = jobsData.findIndex(j => j.id === jobId);
             if (jobIndex > -1) {
                 jobsData[jobIndex].shortlisted = !jobsData[jobIndex].shortlisted;
                 const state = jobsData[jobIndex].shortlisted ? "Added to" : "Removed from";
                 logAction(`${state} Shortlist: Job ${jobId}`);
-                searchJobs(); // Update table UI
+                searchJobs();
             }
         }
 
-        // FIX 1: Toggle shortlist from inside the job page
         function togglePageShortlist() {
             if (!currentOpenJobId) return;
-            toggleShortlist(currentOpenJobId); // Update array and log it
+            toggleShortlist(currentOpenJobId);
             
-            // Update the button visually on the page
             const job = jobsData.find(j => j.id === currentOpenJobId);
             const btn = document.getElementById('page-shortlist-btn');
             if (job.shortlisted) {
@@ -411,7 +406,7 @@
 
         // --- 4. FULL PAGE NAVIGATION ---
         function openJobPage(jobId) {
-            hideTooltip(); // Prevent tooltip from sticking
+            hideTooltip();
             const job = jobsData.find(j => j.id === jobId);
             if(!job) return;
 
@@ -425,7 +420,6 @@
             document.getElementById('page-deadline').innerText = job.deadline;
             document.getElementById('page-description').innerText = job.description;
 
-            // Sync the inside button state
             const btn = document.getElementById('page-shortlist-btn');
             if (job.shortlisted) {
                 btn.classList.add('shortlisted');
@@ -476,7 +470,6 @@
             logAction("Test Started");
         }
 
-        // BACKEND CONNECTION: Pushes to Cloudflare Worker
         async function endTest() {
             logAction("Test Ended");
             
@@ -490,8 +483,8 @@
 
             const filename = `CLNx_TestResults_${testerInfo.id}_${Date.now()}.csv`;
             
-            // ---> IMPORTANT: REPLACE THIS URL WITH YOUR ACTUAL CLOUDFLARE WORKER URL <---
-            const workerUrl = "https://clnx-results-uploader.YOUR-SUBDOMAIN.workers.dev";
+            // ---> Worker URL Updated <---
+            const workerUrl = "https://clnx-results-uploader.fangyu-shi.workers.dev";
 
             try {
                 document.getElementById('cloud-exit-btn').innerText = "Uploading Data...";
