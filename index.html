@@ -65,16 +65,15 @@
         th, td { border: 1px solid var(--border-color); padding: 12px 10px; text-align: left; }
         th { background-color: #F3F4F6; position: sticky; top: 0; z-index: 1; color: #374151;}
 
-        /* Highly Discriminable Shortlist Button */
         .shortlist-btn { padding: 8px 12px; border: 1px solid #9CA3AF; background-color: #FFFFFF; color: #111827; cursor: pointer; width: 100px; text-align: center; font-weight: normal; transition: all 0.2s; border-radius: 3px; }
         .shortlist-btn.shortlisted { background-color: #B0D4FF; border: 2px solid #2563EB; color: #1E3A8A; font-weight: bold; }
         .job-title { color: #2563EB; cursor: pointer; font-weight: bold; text-decoration: underline; }
         .job-title:hover { color: #00449E; }
 
-        /* --- Hover Tooltip (Preview) --- */
+        /* --- Hover Tooltip (Preview) FIXED POSITION --- */
         #hover-tooltip {
             display: none;
-            position: absolute;
+            position: fixed; /* This makes it follow the mouse globally, ignoring the sidebar */
             background-color: white;
             border: 1px solid #999;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -101,7 +100,6 @@
         .details-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 10px 20px; margin-bottom: 15px; }
         .details-grid strong { color: #333; }
         .apply-btn { background-color: var(--btn-blue); color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 3px; }
-
     </style>
 </head>
 <body>
@@ -110,18 +108,14 @@
         <div class="login-box">
             <h2>User Testing</h2>
             <p class="subtitle">Final Prototype for CLNx Website Redesign</p>
-            
             <label for="tester-name">Full Name</label>
             <input type="text" id="tester-name" placeholder="Enter your Name" required>
-            
             <label for="tester-id">Student Number</label>
             <input type="text" id="tester-id" placeholder="Enter your Student Number" required>
-            
             <div class="consent-container">
                 <input type="checkbox" id="consent-checkbox">
                 <label for="consent-checkbox">I have read and signed the consent form and agree to participate in this study.</label>
             </div>
-
             <button onclick="startTest()">Begin Test</button>
         </div>
     </div>
@@ -162,10 +156,7 @@
 
                 <div id="job-table-view">
                     <div class="page-title">On-Campus Jobs</div>
-                    
-                    <div class="warning-banner">
-                        Note: Please ensure you are not using these symbols in your file names: \ / : * ? " < > |
-                    </div>
+                    <div class="warning-banner">Note: Please ensure you are not using these symbols in your file names: \ / : * ? " < > |</div>
 
                     <div class="filter-section">
                         <div class="search-bar">
@@ -178,21 +169,9 @@
                             <div class="filter-group">
                                 <label>Date Live</label>
                                 <select onchange="logAction('Filter: Date Live')"><option>Anytime</option><option>Past 24 Hours</option></select>
-                                
                                 <label style="margin-top:10px;">Department</label>
                                 <select onchange="logAction('Filter: Department')">
-                                    <option>All Departments</option>
-                                    <option>Faculty of Arts & Science</option>
-                                    <option>Engineering</option>
-                                    <option>KPE</option>
-                                    <option>Student Life</option>
-                                    <option>University Libraries</option>
-                                    <option>Information Technology Services</option>
-                                    <option>Facilities & Services</option>
-                                    <option>Alumni Relations</option>
-                                    <option>Department of Chemistry</option>
-                                    <option>Faculty of Pharmacy</option>
-                                    <option>Hart House</option>
+                                    <option>All Departments</option><option>Faculty of Arts & Science</option><option>Engineering</option><option>KPE</option><option>Student Life</option><option>University Libraries</option><option>Information Technology Services</option><option>Facilities & Services</option><option>Alumni Relations</option><option>Department of Chemistry</option><option>Faculty of Pharmacy</option><option>Hart House</option>
                                 </select>
                             </div>
                             <div class="filter-group">
@@ -219,19 +198,16 @@
                                 <th>App Deadline</th>
                             </tr>
                         </thead>
-                        <tbody id="job-table-body">
-                            </tbody>
+                        <tbody id="job-table-body"></tbody>
                     </table>
                 </div>
 
                 <div id="job-details-page">
                     <button class="back-btn" onclick="closeJobPage()">← Back to Job Postings</button>
-                    
                     <div class="details-header">
                         <h2 id="page-title">Job Title Here</h2>
                         <p id="page-subtitle">Organization Name - Division Name</p>
                     </div>
-
                     <div class="details-section">
                         <h3 class="details-section-title">Job Posting Information</h3>
                         <div class="details-content">
@@ -245,14 +221,12 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="details-section">
                         <h3 class="details-section-title">Job Description</h3>
                         <div class="details-content">
                             <p id="page-description">Full job description will go here...</p>
                         </div>
                     </div>
-
                     <button class="apply-btn" onclick="logAction('Clicked Apply on Job Page'); alert('Application simulated.');">Apply for this Position</button>
                     <button class="shortlist-btn" id="page-shortlist-btn" style="padding: 10px 20px; width: auto; margin-left: 10px;" onclick="togglePageShortlist()">Shortlist</button>
                 </div>
@@ -261,13 +235,11 @@
     </div>
 
     <script>
-        // --- Global Variables ---
         let currentOpenJobId = null;
         let testStartTime = 0;
         let testerInfo = { name: "", id: "" };
         let actionLog = [];
 
-        // --- 1. JOB DATA INVENTORY ---
         let jobsData = [
             { id: "263001", title: "Recreation Communications Coordinator", org: "University of Toronto", div: "KPE", type: "Part Time", loc: "St. George", deadline: "Apr 01, 2026", description: "Coordinate recreation communications, manage social media, and support event promotion.", shortlisted: false },
             { id: "263002", title: "2026 Alumni Reunion Event Support Staff", org: "University of Toronto", div: "Alumni Relations", type: "Casual", loc: "St. George", deadline: "May 10, 2026", description: "Provide on-site support for the 2026 Alumni Reunion events.", shortlisted: false },
@@ -291,7 +263,6 @@
             { id: "263020", title: "Programmer for Text Scraping", org: "University of Toronto", div: "Computer Science", type: "Contract", loc: "St. George", deadline: "Mar 22, 2026", description: "Write Python scripts to scrape data for machine learning.", shortlisted: false }
         ];
 
-        // --- 2. TABLE RENDERING, SEARCH & TOOLTIPS ---
         function renderTable(dataToRender = jobsData) {
             const tbody = document.getElementById('job-table-body');
             tbody.innerHTML = '';
@@ -324,52 +295,42 @@
         function showTooltip(e, jobId) {
             const job = jobsData.find(j => j.id === jobId);
             const tooltip = document.getElementById('hover-tooltip');
-            
             tooltip.innerHTML = `
                 <h4>JOB DETAILS</h4>
                 <p><strong>Start Date:</strong> May 1, 2026 | <strong>End Date:</strong> Aug 31, 2026</p>
                 <p><strong>Positions:</strong> 1 | <strong>Salary:</strong> $18.00/hr</p>
                 <p><strong>Description:</strong> ${job.description}</p>
             `;
-            
             tooltip.style.display = 'block';
             moveTooltip(e);
             logAction(`Hovered Preview Tooltip: ${jobId}`);
         }
 
+        /* FIX: Uses ClientX and ClientY to follow the mouse perfectly */
         function moveTooltip(e) {
             const tooltip = document.getElementById('hover-tooltip');
-            tooltip.style.left = (e.pageX + 15) + 'px';
-            tooltip.style.top = (e.pageY + 15) + 'px';
+            tooltip.style.left = (e.clientX + 15) + 'px';
+            tooltip.style.top = (e.clientY + 15) + 'px';
         }
 
-        function hideTooltip() {
-            document.getElementById('hover-tooltip').style.display = 'none';
-        }
+        function hideTooltip() { document.getElementById('hover-tooltip').style.display = 'none'; }
 
         function searchJobs() {
             const query = document.getElementById('search-input').value.toLowerCase();
             if(query !== "") logAction(`Searched: "${query}"`);
-            
-            const filteredData = jobsData.filter(job => 
-                job.title.toLowerCase().includes(query) || 
-                job.description.toLowerCase().includes(query)
-            );
+            const filteredData = jobsData.filter(job => job.title.toLowerCase().includes(query) || job.description.toLowerCase().includes(query));
             renderTable(filteredData);
         }
 
         function handleSearchInput() {
-            const query = document.getElementById('search-input').value;
-            if (query.trim() === '') {
-                logAction("Cleared Search Bar");
-                searchJobs();
+            if (document.getElementById('search-input').value.trim() === '') {
+                logAction("Cleared Search Bar"); searchJobs();
             }
         }
 
         function resetToHome() {
             document.getElementById('search-input').value = '';
-            closeJobPage();
-            searchJobs();
+            closeJobPage(); searchJobs();
         }
 
         function toggleFilters() {
@@ -378,13 +339,11 @@
             logAction(filterDiv.style.display === "grid" ? "Opened Advanced Filters" : "Closed Advanced Filters");
         }
 
-        // --- 3. SHORTLIST LOGIC ---
         function toggleShortlist(jobId) {
             const jobIndex = jobsData.findIndex(j => j.id === jobId);
             if (jobIndex > -1) {
                 jobsData[jobIndex].shortlisted = !jobsData[jobIndex].shortlisted;
-                const state = jobsData[jobIndex].shortlisted ? "Added to" : "Removed from";
-                logAction(`${state} Shortlist: Job ${jobId}`);
+                logAction(`${jobsData[jobIndex].shortlisted ? "Added to" : "Removed from"} Shortlist: Job ${jobId}`);
                 searchJobs();
             }
         }
@@ -392,24 +351,19 @@
         function togglePageShortlist() {
             if (!currentOpenJobId) return;
             toggleShortlist(currentOpenJobId);
-            
             const job = jobsData.find(j => j.id === currentOpenJobId);
             const btn = document.getElementById('page-shortlist-btn');
             if (job.shortlisted) {
-                btn.classList.add('shortlisted');
-                btn.innerText = "Unshortlist";
+                btn.classList.add('shortlisted'); btn.innerText = "Unshortlist";
             } else {
-                btn.classList.remove('shortlisted');
-                btn.innerText = "Shortlist";
+                btn.classList.remove('shortlisted'); btn.innerText = "Shortlist";
             }
         }
 
-        // --- 4. FULL PAGE NAVIGATION ---
         function openJobPage(jobId) {
             hideTooltip();
             const job = jobsData.find(j => j.id === jobId);
             if(!job) return;
-
             currentOpenJobId = jobId;
 
             document.getElementById('page-title').innerText = job.title;
@@ -422,16 +376,13 @@
 
             const btn = document.getElementById('page-shortlist-btn');
             if (job.shortlisted) {
-                btn.classList.add('shortlisted');
-                btn.innerText = "Unshortlist";
+                btn.classList.add('shortlisted'); btn.innerText = "Unshortlist";
             } else {
-                btn.classList.remove('shortlisted');
-                btn.innerText = "Shortlist";
+                btn.classList.remove('shortlisted'); btn.innerText = "Shortlist";
             }
 
             document.getElementById('job-table-view').style.display = 'none';
             document.getElementById('job-details-page').style.display = 'block';
-            
             logAction(`Opened Full Job Page: ${jobId}`);
             document.querySelector('main').scrollTop = 0;
         }
@@ -443,7 +394,6 @@
             logAction(`Returned to Job List`);
         }
 
-        // --- 5. TESTING & CLOUDFLARE BACKEND LOGIC ---
         function logAction(actionName) {
             const timeElapsed = ((Date.now() - testStartTime) / 1000).toFixed(2);
             actionLog.push({ action: actionName, time_seconds: timeElapsed });
@@ -453,42 +403,29 @@
         function startTest() {
             const nameInput = document.getElementById("tester-name").value;
             const idInput = document.getElementById("tester-id").value;
-            const consentChecked = document.getElementById("consent-checkbox").checked;
-
             if(!nameInput || !idInput) { alert("Please enter both Name and Student Number to begin."); return; }
-            if(!consentChecked) { alert("You must agree to the consent form to participate."); return; }
+            if(!document.getElementById("consent-checkbox").checked) { alert("You must agree to the consent form to participate."); return; }
 
-            testerInfo.name = nameInput;
-            testerInfo.id = idInput;
+            testerInfo.name = nameInput; testerInfo.id = idInput;
             document.getElementById("sidebar-name").innerText = nameInput;
-
             document.getElementById("welcome-screen").style.display = "none";
             document.getElementById("main-ui").style.display = "flex";
 
-            renderTable();
-            testStartTime = Date.now();
-            logAction("Test Started");
+            renderTable(); testStartTime = Date.now(); logAction("Test Started");
         }
 
         async function endTest() {
             logAction("Test Ended");
-            
             let csvContent = "Tester Name,Student ID\n";
             csvContent += `"${testerInfo.name}","${testerInfo.id}"\n\n`;
             csvContent += "Sequence Number,Action Taken,Time Elapsed (Seconds)\n";
-
-            actionLog.forEach((row, index) => {
-                csvContent += `${index + 1},"${row.action}",${row.time_seconds}\n`;
-            });
+            actionLog.forEach((row, index) => { csvContent += `${index + 1},"${row.action}",${row.time_seconds}\n`; });
 
             const filename = `CLNx_TestResults_${testerInfo.id}_${Date.now()}.csv`;
-            
-            // ---> Worker URL Updated <---
-            const workerUrl = "https://clnx-results-uploader.fangyu-shi.workers.dev";
+            const workerUrl = "https://clnx-results-uploader.fangyu-shi.workers.dev/";
 
             try {
                 document.getElementById('cloud-exit-btn').innerText = "Uploading Data...";
-
                 const response = await fetch(workerUrl, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -513,9 +450,7 @@
             const link = document.createElement("a");
             link.setAttribute("href", encodedUri);
             link.setAttribute("download", filename);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            document.body.appendChild(link); link.click(); document.body.removeChild(link);
             window.location.reload();
         }
     </script>
