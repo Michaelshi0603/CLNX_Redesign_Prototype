@@ -41,8 +41,6 @@
         nav ul { list-style: none; padding: 0; margin: 0; }
         nav ul li { padding: 12px 20px; cursor: pointer; font-size: 13px; color: #D1D5DB; }
         nav ul li:hover { background-color: #374151; color: white; }
-        
-        /* Dynamic Active Class */
         .active { background-color: var(--active-purple) !important; color: white !important; font-weight: bold; }
         .sub-nav { background-color: #1F2937; padding-left: 40px !important; }
 
@@ -53,15 +51,29 @@
 
         /* --- Dashboard Specific Styles --- */
         #dashboard-page { display: none; }
-        .dashboard-header { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid var(--uoft-blue); }
-        .dashboard-header h1 { margin: 0; color: var(--uoft-blue); font-size: 26px; }
-        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
-        .dash-card { background: white; border: 1px solid var(--border-color); border-radius: 4px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .dash-card h3 { margin: 0 0 10px 0; color: var(--uoft-blue); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .dash-card p { font-size: 14px; color: #555; margin: 5px 0; }
+        .dashboard-header { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--uoft-blue); }
+        .dashboard-header h1 { margin: 0; color: var(--uoft-blue); font-size: 24px; }
         
-        .shortlist-section { background: white; border: 1px solid var(--border-color); border-radius: 4px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .shortlist-section h3 { margin: 0 0 15px 0; color: var(--uoft-blue); font-size: 18px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .dashboard-grid-top { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .dash-card { background: white; border: 1px solid var(--border-color); border-radius: 4px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .dash-card h3 { margin: 0 0 10px 0; color: var(--uoft-blue); font-size: 15px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        .dash-card p { font-size: 13px; color: #555; margin: 5px 0; }
+        
+        .dashboard-layout-main { display: flex; gap: 20px; align-items: flex-start; }
+        .dashboard-left-col { flex: 2; display: flex; flex-direction: column; gap: 20px; }
+        .dashboard-right-col { flex: 1; }
+
+        .dashboard-section { background: white; border: 1px solid var(--border-color); border-radius: 4px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .dashboard-section h3 { margin: 0 0 15px 0; color: var(--uoft-blue); font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        
+        .scrollable-table-container { max-height: 350px; overflow-y: auto; border-bottom: 1px solid var(--border-color); }
+
+        /* --- Upcoming Events Styles --- */
+        .event-card { border-left: 4px solid var(--uoft-blue); padding: 10px 15px; margin-bottom: 15px; background: #F8FAFC; border-radius: 0 4px 4px 0; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .event-date { font-size: 11px; font-weight: bold; color: var(--uoft-blue); margin-bottom: 4px; text-transform: uppercase; }
+        .event-title { font-size: 13px; font-weight: bold; color: #333; margin: 0 0 4px 0; cursor: pointer; }
+        .event-title:hover { color: var(--hover-blue); text-decoration: underline; }
+        .event-type { font-size: 11px; color: #666; }
 
         /* --- Pending Page Styles --- */
         #pending-page { display: none; flex-direction: column; justify-content: center; align-items: center; height: 80%; text-align: center; color: #555; }
@@ -77,8 +89,6 @@
         .filter-group { display: flex; flex-direction: column; gap: 5px; }
         .filter-group label { font-size: 12px; font-weight: bold; color: #555; }
         .filter-group select { padding: 6px; border: 1px solid #ccc; }
-        
-        /* Interactive Filter Buttons */
         .btn-group { display: flex; gap: 5px; margin-top: 2px; }
         .toggle-filter-btn { padding: 6px 12px; border: 1px solid #ccc; background-color: white; color: #333; cursor: pointer; border-radius: 3px; font-size: 12px; }
         .toggle-filter-btn.selected { background-color: var(--uoft-blue); color: white; border-color: var(--uoft-blue); font-weight: bold; }
@@ -87,10 +97,10 @@
         #job-table-view { display: none; }
         .results-count { font-size: 12px; font-weight: bold; margin-bottom: 10px; color: #555; }
         table { width: 100%; border-collapse: collapse; font-size: 12px; }
-        th, td { border: 1px solid var(--border-color); padding: 12px 10px; text-align: left; }
+        th, td { border: 1px solid var(--border-color); padding: 10px; text-align: left; }
         th { background-color: #F3F4F6; position: sticky; top: 0; z-index: 1; color: #374151;}
 
-        .shortlist-btn { padding: 8px 12px; border: 1px solid #9CA3AF; background-color: #FFFFFF; color: #111827; cursor: pointer; width: 100px; text-align: center; font-weight: normal; transition: all 0.2s; border-radius: 3px; }
+        .shortlist-btn { padding: 6px 10px; border: 1px solid #9CA3AF; background-color: #FFFFFF; color: #111827; cursor: pointer; width: 90px; text-align: center; font-weight: normal; transition: all 0.2s; border-radius: 3px; }
         .shortlist-btn.shortlisted { background-color: #B0D4FF; border: 2px solid #2563EB; color: #1E3A8A; font-weight: bold; }
         .job-title { color: #2563EB; cursor: pointer; font-weight: bold; text-decoration: underline; }
         .job-title:hover { color: #00449E; }
@@ -177,7 +187,7 @@
                         <h1 id="dashboard-welcome">Welcome, Tester</h1>
                     </div>
                     
-                    <div class="dashboard-grid">
+                    <div class="dashboard-grid-top">
                         <div class="dash-card">
                             <h3>Experiential Record</h3>
                             <p><strong>0</strong> Activities pending approval</p>
@@ -186,24 +196,55 @@
                         <div class="dash-card">
                             <h3>Appointments & Events</h3>
                             <p><strong>0</strong> Upcoming appointments</p>
-                            <p><strong>0</strong> Upcoming events</p>
+                            <p><strong>3</strong> Upcoming events</p>
                         </div>
                     </div>
 
-                    <div class="shortlist-section">
-                        <h3>My Job Shortlist</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Job Title</th>
-                                    <th>Organization</th>
-                                    <th>App Deadline</th>
-                                </tr>
-                            </thead>
-                            <tbody id="dashboard-shortlist-body">
-                                </tbody>
-                        </table>
+                    <div class="dashboard-layout-main">
+                        <div class="dashboard-left-col">
+                            <div class="dashboard-section">
+                                <h3>My Job Shortlist</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Job Title</th>
+                                            <th>Organization</th>
+                                            <th>App Deadline</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dashboard-shortlist-body">
+                                        </tbody>
+                                </table>
+                            </div>
+
+                            <div class="dashboard-section">
+                                <h3>All Job Postings (On-Campus & Off-Campus)</h3>
+                                <div class="scrollable-table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Job Title</th>
+                                                <th>Category</th>
+                                                <th>Location</th>
+                                                <th>Deadline</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="dashboard-all-jobs-body">
+                                            </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-right-col">
+                            <div class="dashboard-section">
+                                <h3>Upcoming Events</h3>
+                                <div id="dashboard-events-container">
+                                    </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -306,90 +347,126 @@
         let testerInfo = { name: "", id: "" };
         let actionLog = [];
 
+        // Simulated Events Data
+        const eventsData = [
+            { date: "May 10, 2026 - 2:00 PM", title: "Resume & Cover Letter Workshop", type: "Career Exploration & Education" },
+            { date: "May 15, 2026 - 10:00 AM", title: "Engineering Career Fair Spring 2026", type: "Employer Information Session" },
+            { date: "May 18, 2026 - 1:00 PM", title: "Interview Preparation Seminar", type: "Career Exploration & Education" }
+        ];
+
+        // Job Data (Includes On-Campus and simulated Off-Campus)
         let jobsData = [
-            { id: "263001", title: "Recreation Communications Coordinator", org: "University of Toronto", div: "KPE", type: "Part Time", loc: "St. George", deadline: "Apr 01, 2026", description: "Coordinate recreation communications, manage social media, and support event promotion.", shortlisted: false },
-            { id: "263002", title: "2026 Alumni Reunion Event Support Staff", org: "University of Toronto", div: "Alumni Relations", type: "Casual", loc: "St. George", deadline: "May 10, 2026", description: "Provide on-site support for the 2026 Alumni Reunion events.", shortlisted: false },
-            { id: "263080", title: "Qualitative Research Assistant", org: "University of Toronto", div: "Faculty of Arts & Science", type: "Part Time", loc: "St. George", deadline: "Mar 30, 2026", description: "Assist with conducting literature reviews and coding data.", shortlisted: false },
-            { id: "263670", title: "Pharmacy Summer Camp Leaders", org: "University of Toronto", div: "Faculty of Pharmacy", type: "Summer", loc: "St. George", deadline: "Apr 15, 2026", description: "Lead high school students during the Pharmacy Summer Camp.", shortlisted: false },
-            { id: "263707", title: "Program Assistant", org: "University of Toronto", div: "Student Life", type: "Part Time", loc: "St. George", deadline: "Mar 25, 2026", description: "Provide administrative and programmatic support.", shortlisted: false },
-            { id: "263006", title: "Archives Assistant", org: "University of Toronto", div: "University Libraries", type: "Part Time", loc: "St. George", deadline: "Mar 28, 2026", description: "Assist archivists with cataloging and organizing materials.", shortlisted: false },
-            { id: "263007", title: "CPD Education Assistant", org: "University of Toronto", div: "Continuing Professional Development", type: "Part Time", loc: "St. George", deadline: "Apr 05, 2026", description: "Support the planning of continuing education courses.", shortlisted: false },
-            { id: "263008", title: "Fitness and Wellness Staff", org: "University of Toronto", div: "Athletics & Recreation", type: "Part Time", loc: "St. George", deadline: "Apr 10, 2026", description: "Assist with fitness facility operations and patron support.", shortlisted: false },
-            { id: "263009", title: "FLC Student Assistant", org: "University of Toronto", div: "First-Year Learning Communities", type: "Part Time", loc: "St. George", deadline: "Apr 20, 2026", description: "Support the coordination of First-Year Learning Communities.", shortlisted: false },
-            { id: "263010", title: "Lab Coordinator", org: "University of Toronto", div: "Department of Chemistry", type: "Full Time", loc: "Mississauga", deadline: "Mar 31, 2026", description: "Coordinate undergraduate laboratory sessions.", shortlisted: false },
-            { id: "263011", title: "Outdoor Bike Leader", org: "University of Toronto", div: "Hart House", type: "Casual", loc: "St. George", deadline: "May 01, 2026", description: "Lead student group bike tours on outdoor excursions.", shortlisted: false },
-            { id: "263012", title: "Outdoor Recreation Trip Leader", org: "University of Toronto", div: "Hart House", type: "Casual", loc: "St. George", deadline: "May 01, 2026", description: "Plan and lead outdoor recreational trips.", shortlisted: false },
-            { id: "263013", title: "Pharmacy Summer Camp Coordinator", org: "University of Toronto", div: "Faculty of Pharmacy", type: "Summer", loc: "St. George", deadline: "Apr 10, 2026", description: "Coordinate logistics and staff for the pharmacy camp.", shortlisted: false },
-            { id: "263014", title: "Senior Student Web Developer & IT Support", org: "University of Toronto", div: "Information Technology Services", type: "Part Time", loc: "Scarborough", deadline: "Mar 25, 2026", description: "Develop web pages and provide tier 1 IT support.", shortlisted: false },
-            { id: "263015", title: "Service Desk Assistant", org: "University of Toronto", div: "Robarts Library", type: "Part Time", loc: "St. George", deadline: "Apr 02, 2026", description: "Provide front-line customer service at the library desk.", shortlisted: false },
-            { id: "263016", title: "Service Worker - Grounds, Casual", org: "University of Toronto", div: "Facilities & Services", type: "Casual", loc: "St. George", deadline: "Apr 15, 2026", description: "Perform general groundskeeping duties.", shortlisted: false },
-            { id: "263017", title: "Student Helpdesk Support Representative", org: "University of Toronto", div: "ITS Helpdesk", type: "Part Time", loc: "St. George", deadline: "Mar 20, 2026", description: "Assist students with account access and Wi-Fi.", shortlisted: false },
-            { id: "263018", title: "Student Life Assistant, Orientation", org: "University of Toronto", div: "Student Life", type: "Summer", loc: "St. George", deadline: "Apr 30, 2026", description: "Support the planning of fall orientation events.", shortlisted: false },
-            { id: "263019", title: "Research Assistant", org: "University of Toronto", div: "Various Departments", type: "Part Time", loc: "St. George", deadline: "Mar 28, 2026", description: "General research assistant duties and data collection.", shortlisted: false },
-            { id: "263020", title: "Programmer for Text Scraping", org: "University of Toronto", div: "Computer Science", type: "Contract", loc: "St. George", deadline: "Mar 22, 2026", description: "Write Python scripts to scrape data for machine learning.", shortlisted: false }
+            { id: "263001", title: "Recreation Communications Coordinator", org: "University of Toronto", div: "KPE", type: "Part Time", loc: "St. George", deadline: "Apr 01, 2026", description: "Coordinate recreation communications, manage social media, and support event promotion.", category: "On-Campus", shortlisted: false },
+            { id: "263002", title: "2026 Alumni Reunion Event Support Staff", org: "University of Toronto", div: "Alumni Relations", type: "Casual", loc: "St. George", deadline: "May 10, 2026", description: "Provide on-site support for the 2026 Alumni Reunion events.", category: "On-Campus", shortlisted: false },
+            { id: "263080", title: "Qualitative Research Assistant", org: "University of Toronto", div: "Faculty of Arts & Science", type: "Part Time", loc: "St. George", deadline: "Mar 30, 2026", description: "Assist with conducting literature reviews and coding data.", category: "On-Campus", shortlisted: false },
+            { id: "263670", title: "Pharmacy Summer Camp Leaders", org: "University of Toronto", div: "Faculty of Pharmacy", type: "Summer", loc: "St. George", deadline: "Apr 15, 2026", description: "Lead high school students during the Pharmacy Summer Camp.", category: "On-Campus", shortlisted: false },
+            { id: "263707", title: "Program Assistant", org: "University of Toronto", div: "Student Life", type: "Part Time", loc: "St. George", deadline: "Mar 25, 2026", description: "Provide administrative and programmatic support.", category: "On-Campus", shortlisted: false },
+            { id: "263006", title: "Archives Assistant", org: "University of Toronto", div: "University Libraries", type: "Part Time", loc: "St. George", deadline: "Mar 28, 2026", description: "Assist archivists with cataloging and organizing materials.", category: "On-Campus", shortlisted: false },
+            { id: "263007", title: "CPD Education Assistant", org: "University of Toronto", div: "Continuing Professional Development", type: "Part Time", loc: "St. George", deadline: "Apr 05, 2026", description: "Support the planning of continuing education courses.", category: "On-Campus", shortlisted: false },
+            { id: "263008", title: "Fitness and Wellness Staff", org: "University of Toronto", div: "Athletics & Recreation", type: "Part Time", loc: "St. George", deadline: "Apr 10, 2026", description: "Assist with fitness facility operations and patron support.", category: "On-Campus", shortlisted: false },
+            { id: "263009", title: "FLC Student Assistant", org: "University of Toronto", div: "First-Year Learning Communities", type: "Part Time", loc: "St. George", deadline: "Apr 20, 2026", description: "Support the coordination of First-Year Learning Communities.", category: "On-Campus", shortlisted: false },
+            { id: "263010", title: "Lab Coordinator", org: "University of Toronto", div: "Department of Chemistry", type: "Full Time", loc: "Mississauga", deadline: "Mar 31, 2026", description: "Coordinate undergraduate laboratory sessions.", category: "On-Campus", shortlisted: false },
+            { id: "263011", title: "Outdoor Bike Leader", org: "University of Toronto", div: "Hart House", type: "Casual", loc: "St. George", deadline: "May 01, 2026", description: "Lead student group bike tours on outdoor excursions.", category: "On-Campus", shortlisted: false },
+            { id: "263012", title: "Outdoor Recreation Trip Leader", org: "University of Toronto", div: "Hart House", type: "Casual", loc: "St. George", deadline: "May 01, 2026", description: "Plan and lead outdoor recreational trips.", category: "On-Campus", shortlisted: false },
+            { id: "263013", title: "Pharmacy Summer Camp Coordinator", org: "University of Toronto", div: "Faculty of Pharmacy", type: "Summer", loc: "St. George", deadline: "Apr 10, 2026", description: "Coordinate logistics and staff for the pharmacy camp.", category: "On-Campus", shortlisted: false },
+            { id: "263014", title: "Senior Student Web Developer & IT Support", org: "University of Toronto", div: "Information Technology Services", type: "Part Time", loc: "Scarborough", deadline: "Mar 25, 2026", description: "Develop web pages and provide tier 1 IT support.", category: "On-Campus", shortlisted: false },
+            { id: "263015", title: "Service Desk Assistant", org: "University of Toronto", div: "Robarts Library", type: "Part Time", loc: "St. George", deadline: "Apr 02, 2026", description: "Provide front-line customer service at the library desk.", category: "On-Campus", shortlisted: false },
+            { id: "263016", title: "Service Worker - Grounds, Casual", org: "University of Toronto", div: "Facilities & Services", type: "Casual", loc: "St. George", deadline: "Apr 15, 2026", description: "Perform general groundskeeping duties.", category: "On-Campus", shortlisted: false },
+            { id: "263017", title: "Student Helpdesk Support Representative", org: "University of Toronto", div: "ITS Helpdesk", type: "Part Time", loc: "St. George", deadline: "Mar 20, 2026", description: "Assist students with account access and Wi-Fi.", category: "On-Campus", shortlisted: false },
+            { id: "263018", title: "Student Life Assistant, Orientation", org: "University of Toronto", div: "Student Life", type: "Summer", loc: "St. George", deadline: "Apr 30, 2026", description: "Support the planning of fall orientation events.", category: "On-Campus", shortlisted: false },
+            { id: "263019", title: "Research Assistant", org: "University of Toronto", div: "Various Departments", type: "Part Time", loc: "St. George", deadline: "Mar 28, 2026", description: "General research assistant duties and data collection.", category: "On-Campus", shortlisted: false },
+            { id: "263020", title: "Programmer for Text Scraping", org: "University of Toronto", div: "Computer Science", type: "Contract", loc: "St. George", deadline: "Mar 22, 2026", description: "Write Python scripts to scrape data for machine learning.", category: "On-Campus", shortlisted: false },
+            
+            // Added Off-Campus items for the overall dashboard list
+            { id: "990001", title: "Software Engineering Intern", org: "IBM Canada", div: "Technology", type: "Summer", loc: "Toronto, ON", deadline: "Apr 30, 2026", description: "...", category: "Off-Campus", shortlisted: false },
+            { id: "990002", title: "Marketing Coordinator", org: "Bell", div: "Marketing", type: "Full Time", loc: "Toronto, ON", deadline: "May 15, 2026", description: "...", category: "Off-Campus", shortlisted: false }
         ];
 
         // --- NAVIGATION LOGIC ---
         function navigateSidebar(clickedElement, targetPageId, actionLogName) {
             logAction(actionLogName);
             
-            // 1. Update Sidebar UI
             document.querySelectorAll('aside nav li').forEach(li => li.classList.remove('active'));
             clickedElement.classList.add('active');
 
-            // 2. Hide all pages
             document.getElementById('dashboard-page').style.display = 'none';
             document.getElementById('pending-page').style.display = 'none';
             document.getElementById('job-table-view').style.display = 'none';
             document.getElementById('job-details-page').style.display = 'none';
 
-            // 3. Show target page
             if (targetPageId === 'dashboard-page') {
                 document.getElementById('dashboard-page').style.display = 'block';
-                updateDashboardShortlist();
+                updateDashboardUI();
             } else if (targetPageId === 'job-table-view') {
                 document.getElementById('job-table-view').style.display = 'block';
-                resetToHome(); // Resets search and filters when clicking the tab
+                resetToHome(); 
             } else {
                 document.getElementById('pending-page').style.display = 'flex';
             }
         }
 
-        // --- DASHBOARD SHORTLIST LOGIC ---
-        function updateDashboardShortlist() {
-            const tbody = document.getElementById('dashboard-shortlist-body');
-            tbody.innerHTML = '';
+        // --- DASHBOARD RENDER LOGIC ---
+        function updateDashboardUI() {
+            // 1. Update Shortlist
+            const shortlistBody = document.getElementById('dashboard-shortlist-body');
+            shortlistBody.innerHTML = '';
             
             const shortlistedJobs = jobsData.filter(j => j.shortlisted);
 
             if (shortlistedJobs.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 20px; color: #777;">You have no shortlisted jobs. Start exploring On-Campus Jobs!</td></tr>';
-                return;
+                shortlistBody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 20px; color: #777;">You have no shortlisted jobs.</td></tr>';
+            } else {
+                shortlistedJobs.forEach(job => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${job.id}</td>
+                        <td><span class="job-title" onclick="openJobFromDashboard('${job.id}')">${job.title}</span></td>
+                        <td>${job.org}</td>
+                        <td>${job.deadline}</td>
+                    `;
+                    shortlistBody.appendChild(tr);
+                });
             }
 
-            shortlistedJobs.forEach(job => {
+            // 2. Update All Jobs (On-Campus + Off-Campus)
+            const allJobsBody = document.getElementById('dashboard-all-jobs-body');
+            allJobsBody.innerHTML = '';
+            
+            jobsData.forEach(job => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td>${job.id}</td>
                     <td><span class="job-title" onclick="openJobFromDashboard('${job.id}')">${job.title}</span></td>
-                    <td>${job.org}</td>
+                    <td><strong>${job.category}</strong></td>
+                    <td>${job.loc}</td>
                     <td>${job.deadline}</td>
                 `;
-                tbody.appendChild(tr);
+                allJobsBody.appendChild(tr);
+            });
+
+            // 3. Update Events Widget
+            const eventsContainer = document.getElementById('dashboard-events-container');
+            eventsContainer.innerHTML = '';
+            eventsData.forEach(ev => {
+                const eventHtml = `
+                    <div class="event-card">
+                        <div class="event-date">${ev.date}</div>
+                        <h4 class="event-title" onclick="logAction('Clicked Dashboard Event: ${ev.title}')">${ev.title}</h4>
+                        <div class="event-type">${ev.type}</div>
+                    </div>
+                `;
+                eventsContainer.innerHTML += eventHtml;
             });
         }
 
         function openJobFromDashboard(jobId) {
-            // Act like we clicked the On-Campus Jobs sidebar link first
             document.querySelectorAll('aside nav li').forEach(li => li.classList.remove('active'));
             document.getElementById('nav-on-campus-jobs').classList.add('active');
-            
-            // Then open the job details
             openJobPage(jobId);
         }
 
         // --- TABLE RENDERING & TOOLTIPS ---
-        function renderTable(dataToRender = jobsData) {
+        function renderTable(dataToRender = jobsData.filter(j => j.category === "On-Campus")) {
             const tbody = document.getElementById('job-table-body');
             tbody.innerHTML = '';
             document.getElementById('results-count').innerText = `TOTAL RESULTS: ${dataToRender.length}`;
@@ -476,7 +553,8 @@
 
             if(query !== "") logAction(`Searched: "${query}"`);
 
-            const filteredData = jobsData.filter(job => {
+            // Base filter ensures only On-Campus jobs appear in the main table view
+            const filteredData = jobsData.filter(job => job.category === "On-Campus").filter(job => {
                 const matchesText = job.title.toLowerCase().includes(query) || job.description.toLowerCase().includes(query);
                 const matchesDept = (dept === "All Departments") || (job.div === dept);
                 const matchesPosition = activePositions.length === 0 || activePositions.includes(job.type);
@@ -507,10 +585,8 @@
                 jobsData[jobIndex].shortlisted = !jobsData[jobIndex].shortlisted;
                 logAction(`${jobsData[jobIndex].shortlisted ? "Added to" : "Removed from"} Shortlist: Job ${jobId}`);
                 
-                // Re-render table to show button color change
                 applyFilters(); 
-                // Keep Dashboard table synced invisibly in the background
-                updateDashboardShortlist(); 
+                updateDashboardUI(); 
             }
         }
 
@@ -532,21 +608,18 @@
             if(!job) return;
             currentOpenJobId = jobId;
 
-            // Hide the Dashboard and Table View
             document.getElementById('dashboard-page').style.display = 'none';
             document.getElementById('pending-page').style.display = 'none';
             document.getElementById('job-table-view').style.display = 'none';
 
-            // Populate the specific job details
             document.getElementById('page-title').innerText = job.title;
-            document.getElementById('page-subtitle').innerText = `${job.org} - ${job.div}`;
+            document.getElementById('page-subtitle').innerText = `${job.org} - ${job.div || "N/A"}`;
             document.getElementById('page-id').innerText = job.id;
             document.getElementById('page-type').innerText = job.type;
             document.getElementById('page-location').innerText = job.loc;
             document.getElementById('page-deadline').innerText = job.deadline;
             document.getElementById('page-description').innerText = job.description;
 
-            // Sync the inside button
             const btn = document.getElementById('page-shortlist-btn');
             if (job.shortlisted) {
                 btn.classList.add('shortlisted'); btn.innerText = "Unshortlist";
@@ -554,7 +627,6 @@
                 btn.classList.remove('shortlisted'); btn.innerText = "Shortlist";
             }
 
-            // Show the job page
             document.getElementById('job-details-page').style.display = 'block';
             logAction(`Opened Full Job Page: ${jobId}`);
             document.querySelector('main').scrollTop = 0;
@@ -563,7 +635,6 @@
         function closeJobPage() {
             currentOpenJobId = null;
             document.getElementById('job-details-page').style.display = 'none';
-            // When closing the job page, ALWAYS return to the job table (simulating typical browser 'back' behavior in this module)
             document.getElementById('job-table-view').style.display = 'block';
             logAction(`Returned to Job List`);
         }
@@ -591,7 +662,6 @@
             renderTable(); 
             testStartTime = Date.now(); 
             
-            // Auto-click the dashboard to set the initial view
             document.getElementById("nav-dashboard").click();
             logAction("Test Started");
         }
