@@ -1,0 +1,40 @@
+Tester Name,Student ID
+"Alexis Maheras","0"
+
+Sequence Number,Action Taken,Time Elapsed (Seconds)
+1,"Sidebar: Dashboard",0.00
+2,"Test Started",0.00
+3,"Sidebar: Off-Campus Jobs",20.18
+4,"Sidebar: ON-CAMPUS JOBS",22.68
+5,"Hovered Preview Tooltip: 263001",24.94
+6,"Hovered Preview Tooltip: 263001",24.99
+7,"Added to Shortlist: Job 263001",26.85
+8,"Sidebar: Dashboard",29.86
+9,"Sidebar: ON-CAMPUS JOBS",110.21
+10,"Opened Advanced Filters",113.13
+11,"Toggled Position filter: Summer",117.53
+12,"Toggled Campus filter: St. George",118.88
+13,"Hovered Preview Tooltip: 263670",122.93
+14,"Hovered Preview Tooltip: 263013",124.88
+15,"Hovered Preview Tooltip: 263013",125.19
+16,"Closed Advanced Filters",187.38
+17,"Opened Advanced Filters",188.50
+18,"Closed Advanced Filters",189.46
+19,"Sidebar: Dashboard",193.78
+20,"Sidebar: Co-Curricular Record",196.03
+21,"Sidebar: Dashboard",197.62
+22,"Sidebar: ON-CAMPUS JOBS",205.23
+23,"Hovered Preview Tooltip: 263002",206.16
+24,"Removed from Shortlist: Job 263001",207.58
+25,"Hovered Preview Tooltip: 263002",208.36
+26,"Opened Full Job Page: 263002",209.40
+27,"Returned to Job List",215.25
+28,"Hovered Preview Tooltip: 263001",216.54
+29,"Hovered Preview Tooltip: 263002",220.13
+30,"Hovered Preview Tooltip: 263002",233.81
+31,"Hovered Preview Tooltip: 263002",255.26
+32,"Opened Full Job Page: 263002",264.85
+33,"Returned to Job List",276.58
+34,"Hovered Preview Tooltip: 263001",277.24
+35,"Hovered Preview Tooltip: 263002",277.38
+36,"Test Ended",285.40
