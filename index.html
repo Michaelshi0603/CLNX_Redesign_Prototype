@@ -55,12 +55,13 @@
         .search-bar { display: flex; gap: 10px; }
         .search-bar input { flex: 1; padding: 8px 12px; border: 1px solid #ccc; border-radius: 3px; }
         .search-bar button { background-color: var(--btn-blue); color: white; border: none; padding: 8px 20px; cursor: pointer; border-radius: 3px; font-weight: bold; }
-        .advanced-filters { display: none; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd; }
+        
+        .advanced-filters { grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd; }
         .filter-group { display: flex; flex-direction: column; gap: 5px; }
         .filter-group label { font-size: 12px; font-weight: bold; color: #555; }
         .filter-group select { padding: 6px; border: 1px solid #ccc; }
         
-        /* Interactive Filter Buttons (3.4.2) */
+        /* Interactive Filter Buttons */
         .btn-group { display: flex; gap: 5px; margin-top: 2px; }
         .toggle-filter-btn { padding: 6px 12px; border: 1px solid #ccc; background-color: white; color: #333; cursor: pointer; border-radius: 3px; font-size: 12px; }
         .toggle-filter-btn.selected { background-color: var(--uoft-blue); color: white; border-color: var(--uoft-blue); font-weight: bold; }
@@ -169,32 +170,32 @@
 
                     <div class="filter-section">
                         <div class="search-bar">
-                            <input type="text" id="search-input" placeholder="Keyword Search" onfocus="logAction('Focused Search Bar')" oninput="handleSearchInput()">
-                            <button onclick="searchJobs()">Search</button>
-                            <button onclick="toggleFilters()" style="background:#4B5563;">Filters</button>
+                            <input type="text" id="search-input" placeholder="Keyword Search" onfocus="logAction('Focused Search Bar')" oninput="applyFilters()">
+                            <button type="button" onclick="applyFilters()">Search</button>
+                            <button type="button" onclick="toggleFilters()" style="background:#4B5563;">Filters</button>
                         </div>
                         
-                        <div class="advanced-filters" id="advanced-filters">
+                        <div class="advanced-filters" id="advanced-filters" style="display: none;">
                             <div class="filter-group">
                                 <label>Date Live</label>
-                                <select onchange="logAction('Filter: Date Live')"><option>Anytime</option><option>Past 24 Hours</option></select>
+                                <select id="filter-date" onchange="logAction('Filter: Date Live'); applyFilters()"><option>Anytime</option><option>Past 24 Hours</option></select>
                                 <label style="margin-top:10px;">Department</label>
-                                <select onchange="logAction('Filter: Department')">
+                                <select id="filter-department" onchange="logAction('Filter: Department'); applyFilters()">
                                     <option>All Departments</option><option>Faculty of Arts & Science</option><option>Engineering</option><option>KPE</option><option>Student Life</option><option>University Libraries</option><option>Information Technology Services</option><option>Facilities & Services</option><option>Alumni Relations</option><option>Department of Chemistry</option><option>Faculty of Pharmacy</option><option>Hart House</option>
                                 </select>
                             </div>
                             <div class="filter-group">
                                 <label>Position Type</label>
                                 <div class="btn-group">
-                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Position')">Full Time</button>
-                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Position')">Part Time</button>
-                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Position')">Summer</button>
+                                    <button class="toggle-filter-btn position-btn" onclick="toggleBtn(this, 'Position')">Full Time</button>
+                                    <button class="toggle-filter-btn position-btn" onclick="toggleBtn(this, 'Position')">Part Time</button>
+                                    <button class="toggle-filter-btn position-btn" onclick="toggleBtn(this, 'Position')">Summer</button>
                                 </div>
                                 <label style="margin-top:10px;">Campus</label>
                                 <div class="btn-group">
-                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Campus')">St. George</button>
-                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Campus')">Mississauga</button>
-                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Campus')">Scarborough</button>
+                                    <button class="toggle-filter-btn campus-btn" onclick="toggleBtn(this, 'Campus')">St. George</button>
+                                    <button class="toggle-filter-btn campus-btn" onclick="toggleBtn(this, 'Campus')">Mississauga</button>
+                                    <button class="toggle-filter-btn campus-btn" onclick="toggleBtn(this, 'Campus')">Scarborough</button>
                                 </div>
                             </div>
                         </div>
@@ -309,6 +310,7 @@
             });
         }
 
+        // TOOLTIP LOGIC
         function showTooltip(e, jobId) {
             const job = jobsData.find(j => j.id === jobId);
             const tooltip = document.getElementById('hover-tooltip');
@@ -330,7 +332,6 @@
             let xPos = e.clientX + 15;
             let yPos = e.clientY + 15;
             
-            // Boundary detection to prevent tooltip flying off-screen
             if (xPos + 300 > window.innerWidth) { xPos = e.clientX - 315; }
             if (yPos + 200 > window.innerHeight) { yPos = e.clientY - 215; }
 
@@ -340,41 +341,66 @@
 
         function hideTooltip() { document.getElementById('hover-tooltip').style.display = 'none'; }
 
+        // FILTER BUTTON TOGGLE
+        function toggleFilters() {
+            const filterDiv = document.getElementById("advanced-filters");
+            if (filterDiv.style.display === "none" || filterDiv.style.display === "") {
+                filterDiv.style.display = "grid";
+                logAction("Opened Advanced Filters");
+            } else {
+                filterDiv.style.display = "none";
+                logAction("Closed Advanced Filters");
+            }
+        }
+
         function toggleBtn(btn, category) {
             btn.classList.toggle('selected');
             logAction(`Toggled ${category} filter: ${btn.innerText}`);
+            applyFilters();
         }
 
-        function searchJobs() {
+        // ACTUAL DATA FILTERING ENGINE
+        function applyFilters() {
             const query = document.getElementById('search-input').value.toLowerCase();
-            if(query !== "") logAction(`Searched: "${query}"`);
-            const filteredData = jobsData.filter(job => job.title.toLowerCase().includes(query) || job.description.toLowerCase().includes(query));
-            renderTable(filteredData);
-        }
+            const deptSelect = document.getElementById('filter-department');
+            const dept = deptSelect ? deptSelect.value : "All Departments";
+            
+            const activePositions = Array.from(document.querySelectorAll('.position-btn.selected')).map(b => b.innerText);
+            const activeCampuses = Array.from(document.querySelectorAll('.campus-btn.selected')).map(b => b.innerText);
 
-        function handleSearchInput() {
-            if (document.getElementById('search-input').value.trim() === '') {
-                logAction("Cleared Search Bar"); searchJobs();
-            }
+            if(query !== "") logAction(`Searched: "${query}"`);
+
+            const filteredData = jobsData.filter(job => {
+                // 1. Check Search Query
+                const matchesText = job.title.toLowerCase().includes(query) || job.description.toLowerCase().includes(query);
+                // 2. Check Department
+                const matchesDept = (dept === "All Departments") || (job.div === dept);
+                // 3. Check Position Buttons (If none selected, show all)
+                const matchesPosition = activePositions.length === 0 || activePositions.includes(job.type);
+                // 4. Check Campus Buttons (If none selected, show all)
+                const matchesCampus = activeCampuses.length === 0 || activeCampuses.some(c => job.loc.includes(c));
+                
+                return matchesText && matchesDept && matchesPosition && matchesCampus;
+            });
+
+            renderTable(filteredData);
         }
 
         function resetToHome() {
             document.getElementById('search-input').value = '';
-            closeJobPage(); searchJobs();
+            document.getElementById('filter-department').value = "All Departments";
+            document.querySelectorAll('.toggle-filter-btn').forEach(b => b.classList.remove('selected'));
+            closeJobPage(); 
+            applyFilters();
         }
 
-        function toggleFilters() {
-            const filterDiv = document.getElementById("advanced-filters");
-            filterDiv.style.display = filterDiv.style.display === "grid" ? "none" : "grid";
-            logAction(filterDiv.style.display === "grid" ? "Opened Advanced Filters" : "Closed Advanced Filters");
-        }
-
+        // SHORTLISTING
         function toggleShortlist(jobId) {
             const jobIndex = jobsData.findIndex(j => j.id === jobId);
             if (jobIndex > -1) {
                 jobsData[jobIndex].shortlisted = !jobsData[jobIndex].shortlisted;
                 logAction(`${jobsData[jobIndex].shortlisted ? "Added to" : "Removed from"} Shortlist: Job ${jobId}`);
-                searchJobs();
+                applyFilters(); // Re-render preserving filters
             }
         }
 
@@ -390,6 +416,7 @@
             }
         }
 
+        // NAVIGATION
         function openJobPage(jobId) {
             hideTooltip();
             const job = jobsData.find(j => j.id === jobId);
@@ -424,6 +451,7 @@
             logAction(`Returned to Job List`);
         }
 
+        // LOGGING & BACKEND
         function logAction(actionName) {
             const timeElapsed = ((Date.now() - testStartTime) / 1000).toFixed(2);
             actionLog.push({ action: actionName, time_seconds: timeElapsed });
