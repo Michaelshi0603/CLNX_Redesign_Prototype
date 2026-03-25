@@ -1,0 +1,51 @@
+Tester Name,Student ID
+"1","1"
+
+Sequence Number,Action Taken,Time Elapsed (Seconds)
+1,"Sidebar: Dashboard",0.00
+2,"Test Started",0.00
+3,"Clicked Dashboard Event: Interview Preparation Seminar",2.81
+4,"Sidebar: Work Study",4.17
+5,"Sidebar: Search Overview",4.62
+6,"Sidebar: Work Study",5.19
+7,"Sidebar: ON-CAMPUS JOBS",5.78
+8,"Sidebar: Off-Campus Jobs",6.33
+9,"Sidebar: ON-CAMPUS JOBS",7.13
+10,"Sidebar: Dashboard",8.06
+11,"Sidebar: Appointments",8.53
+12,"Sidebar: Co-Curricular Record",9.04
+13,"Sidebar: Events & Workshops",9.62
+14,"Sidebar: Experiential Learning",10.06
+15,"Sidebar: Logout",10.93
+16,"Sidebar: Student Resources",11.32
+17,"Sidebar: Programs",11.88
+18,"Sidebar: Logout",12.51
+19,"Sidebar: Logout",12.87
+20,"Sidebar: Logout",13.34
+21,"Sidebar: Student Resources",13.73
+22,"Sidebar: Dashboard",15.88
+23,"Sidebar: ON-CAMPUS JOBS",27.23
+24,"Hovered Preview Tooltip: 263002",27.67
+25,"Hovered Preview Tooltip: 263707",29.38
+26,"Hovered Preview Tooltip: 263080",30.16
+27,"Hovered Preview Tooltip: 263009",30.44
+28,"Hovered Preview Tooltip: 263002",31.84
+29,"Added to Shortlist: Job 263001",32.90
+30,"Removed from Shortlist: Job 263001",33.27
+31,"Sidebar: Dashboard",34.08
+32,"Opened Full Job Page: 263001",36.44
+33,"Clicked Apply on Job Page",37.56
+34,"Added to Shortlist: Job 263001",39.51
+35,"Sidebar: Dashboard",40.35
+36,"Opened Full Job Page: 263002",41.17
+37,"Added to Shortlist: Job 263002",42.06
+38,"Sidebar: Dashboard",42.77
+39,"Sidebar: Co-Curricular Record",51.43
+40,"Sidebar: Events & Workshops",51.91
+41,"Sidebar: ON-CAMPUS JOBS",53.02
+42,"Hovered Preview Tooltip: 263002",61.14
+43,"Hovered Preview Tooltip: 263012",63.72
+44,"Hovered Preview Tooltip: 263001",64.31
+45,"Hovered Preview Tooltip: 263001",67.51
+46,"Hovered Preview Tooltip: 263002",67.76
+47,"Test Ended",3421.18
