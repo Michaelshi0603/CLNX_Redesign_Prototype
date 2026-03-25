@@ -1,0 +1,48 @@
+Tester Name,Student ID
+"testnew","testnew"
+
+Sequence Number,Action Taken,Time Elapsed (Seconds)
+1,"Test Started",0.00
+2,"Hovered Preview Tooltip: 263001",1.58
+3,"Hovered Preview Tooltip: 263001",1.93
+4,"Hovered Preview Tooltip: 263001",2.23
+5,"Hovered Preview Tooltip: 263002",2.96
+6,"Sidebar: Work Study",4.63
+7,"Sidebar: Search Overview",5.09
+8,"Sidebar: Dashboard",5.78
+9,"Hovered Preview Tooltip: 263002",6.36
+10,"Opened Advanced Filters",8.75
+11,"Toggled Campus filter: St. George",12.62
+12,"Toggled Campus filter: Mississauga",13.00
+13,"Toggled Campus filter: Scarborough",13.29
+14,"Toggled Campus filter: Mississauga",16.90
+15,"Toggled Campus filter: St. George",17.26
+16,"Toggled Campus filter: Scarborough",17.67
+17,"Toggled Campus filter: St. George",18.11
+18,"Toggled Campus filter: St. George",22.51
+19,"Toggled Campus filter: Mississauga",22.91
+20,"Closed Advanced Filters",26.92
+21,"Focused Search Bar",28.58
+22,"Opened Advanced Filters",31.11
+23,"Toggled Campus filter: Mississauga",32.23
+24,"Filter: Department",34.36
+25,"Toggled Campus filter: Mississauga",34.83
+26,"Hovered Preview Tooltip: 263001",38.96
+27,"Toggled Position filter: Full Time",41.33
+28,"Toggled Position filter: Full Time",41.80
+29,"Toggled Position filter: Part Time",42.24
+30,"Sidebar: Search Overview",45.35
+31,"Sidebar: Search Overview",45.84
+32,"Sidebar: Work Study",46.64
+33,"Returned to Job List",47.01
+34,"Sidebar: ON-CAMPUS JOBS",47.01
+35,"Sidebar: Off-Campus Jobs",47.44
+36,"Returned to Job List",47.86
+37,"Sidebar: ON-CAMPUS JOBS",47.87
+38,"Sidebar: Dashboard",48.80
+39,"Sidebar: Dashboard",48.97
+40,"Toggled Campus filter: St. George",50.20
+41,"Toggled Campus filter: Mississauga",50.60
+42,"Toggled Position filter: Part Time",51.02
+43,"Toggled Campus filter: St. George",51.76
+44,"Test Ended",54.74
