@@ -1,0 +1,12 @@
+Tester Name,Student ID
+"5","5"
+
+Sequence Number,Action Taken,Time Elapsed (Seconds)
+1,"Sidebar: Dashboard",0.00
+2,"Test Started",0.00
+3,"Opened Full Job Page: 263001",8.58
+4,"Added to Shortlist: Job 263001",9.91
+5,"Sidebar: Dashboard",10.72
+6,"Sidebar: Appointments",12.48
+7,"Sidebar: Dashboard",13.78
+8,"Test Ended",48.61
