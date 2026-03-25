@@ -1,0 +1,10 @@
+Tester Name,Student ID
+"Francesca Mangano","67"
+
+Sequence Number,Action Taken,Time Elapsed (Seconds)
+1,"Test Started",0.00
+2,"Opened Advanced Filters",7.55
+3,"Filter: Position Type",23.06
+4,"Filter: Position Type",24.40
+5,"Filter: Position Type",31.80
+6,"Test Ended",756.21
