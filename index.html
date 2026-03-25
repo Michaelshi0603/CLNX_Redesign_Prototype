@@ -43,10 +43,11 @@
         nav ul li:hover { background-color: #374151; color: white; }
         .active-nav { background-color: var(--active-purple) !important; color: white !important; font-weight: bold; }
         .sub-nav { background-color: #1F2937; padding-left: 40px !important; }
+        .sub-nav-active { color: white !important; font-weight: bold; }
 
         /* --- Main Content Area --- */
         main { flex: 1; padding: 20px 30px; overflow-y: auto; background-color: white; position: relative; }
-        .page-title { font-size: 22px; font-weight: bold; margin-bottom: 15px; color: #333; }
+        .page-title { font-size: 22px; font-weight: bold; margin-bottom: 15px; color: #333; text-transform: uppercase; }
         .warning-banner { background-color: #FFF9C4; border: 1px solid #FDE047; padding: 12px; margin-bottom: 20px; font-size: 13px; font-weight: bold; color: #854D0E; }
 
         /* --- Filters & Search --- */
@@ -58,6 +59,11 @@
         .filter-group { display: flex; flex-direction: column; gap: 5px; }
         .filter-group label { font-size: 12px; font-weight: bold; color: #555; }
         .filter-group select { padding: 6px; border: 1px solid #ccc; }
+        
+        /* Interactive Filter Buttons (3.4.2) */
+        .btn-group { display: flex; gap: 5px; margin-top: 2px; }
+        .toggle-filter-btn { padding: 6px 12px; border: 1px solid #ccc; background-color: white; color: #333; cursor: pointer; border-radius: 3px; font-size: 12px; }
+        .toggle-filter-btn.selected { background-color: var(--uoft-blue); color: white; border-color: var(--uoft-blue); font-weight: bold; }
 
         /* --- Job Table View --- */
         .results-count { font-size: 12px; font-weight: bold; margin-bottom: 10px; color: #555; }
@@ -73,19 +79,20 @@
         /* --- Hover Tooltip (Preview) FIXED POSITION --- */
         #hover-tooltip {
             display: none;
-            position: fixed; /* This makes it follow the mouse globally, ignoring the sidebar */
+            position: fixed; 
             background-color: white;
-            border: 1px solid #999;
+            border: 1px solid #ccc;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             padding: 15px;
-            width: 320px;
+            width: 300px;
             z-index: 9999;
             font-size: 12px;
             color: #333;
             pointer-events: none;
+            border-top: 4px solid var(--uoft-blue);
         }
-        #hover-tooltip h4 { margin: 0 0 10px 0; border-bottom: 1px solid #eee; padding-bottom: 5px; color: var(--uoft-blue); font-size: 14px;}
-        #hover-tooltip p { margin: 6px 0; line-height: 1.4;}
+        #hover-tooltip h4 { margin: 0 0 10px 0; padding-bottom: 5px; color: var(--uoft-blue); font-size: 14px;}
+        #hover-tooltip p { margin: 4px 0; line-height: 1.4;}
 
         /* --- Full Page Job Details View --- */
         #job-details-page { display: none; }
@@ -140,7 +147,9 @@
                         <li onclick="logAction('Sidebar: Events & Workshops')">Events & Workshops</li>
                         <li onclick="logAction('Sidebar: Experiential Learning')">Experiential Learning</li>
                         <li class="active-nav" onclick="logAction('Sidebar: JOBS & RECRUITMENT')">JOBS & RECRUITMENT ▼</li>
-                        <li class="sub-nav" onclick="resetToHome(); logAction('Sidebar: On-Campus Jobs')">On-Campus Jobs</li>
+                        <li class="sub-nav" onclick="logAction('Sidebar: Search Overview')">Search Overview</li>
+                        <li class="sub-nav" onclick="logAction('Sidebar: Work Study')">Work Study</li>
+                        <li class="sub-nav sub-nav-active" onclick="resetToHome(); logAction('Sidebar: ON-CAMPUS JOBS')">ON-CAMPUS JOBS</li>
                         <li class="sub-nav" onclick="logAction('Sidebar: Off-Campus Jobs')">Off-Campus Jobs</li>
                         <li class="sub-nav" onclick="logAction('Sidebar: Casual Job Board')">Casual Job Board</li>
                         <li class="sub-nav" onclick="logAction('Sidebar: Volunteer Postings')">Volunteer Postings</li>
@@ -155,8 +164,8 @@
                 <div id="hover-tooltip"></div>
 
                 <div id="job-table-view">
-                    <div class="page-title">On-Campus Jobs</div>
-                    <div class="warning-banner">Note: Please ensure you are not using these symbols in your file names: \ / : * ? " < > |</div>
+                    <div class="page-title">ON-CAMPUS JOBS</div>
+                    <div class="warning-banner">Note: Please ensure you are not using these symbols in your file names: \ / : * ? " &lt; &gt; |</div>
 
                     <div class="filter-section">
                         <div class="search-bar">
@@ -176,9 +185,17 @@
                             </div>
                             <div class="filter-group">
                                 <label>Position Type</label>
-                                <select onchange="logAction('Filter: Position Type')"><option>All</option><option>Full Time</option><option>Part Time</option><option>Summer</option></select>
+                                <div class="btn-group">
+                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Position')">Full Time</button>
+                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Position')">Part Time</button>
+                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Position')">Summer</button>
+                                </div>
                                 <label style="margin-top:10px;">Campus</label>
-                                <select onchange="logAction('Filter: Campus')"><option>All</option><option>St. George</option><option>Mississauga</option><option>Scarborough</option></select>
+                                <div class="btn-group">
+                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Campus')">St. George</button>
+                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Campus')">Mississauga</button>
+                                    <button class="toggle-filter-btn" onclick="toggleBtn(this, 'Campus')">Scarborough</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -297,23 +314,36 @@
             const tooltip = document.getElementById('hover-tooltip');
             tooltip.innerHTML = `
                 <h4>JOB DETAILS</h4>
-                <p><strong>Start Date:</strong> May 1, 2026 | <strong>End Date:</strong> Aug 31, 2026</p>
-                <p><strong>Positions:</strong> 1 | <strong>Salary:</strong> $18.00/hr</p>
-                <p><strong>Description:</strong> ${job.description}</p>
+                <p><strong>Start Date:</strong> May 1, 2026</p>
+                <p><strong>End Date:</strong> August 31, 2026</p>
+                <p><strong>Number of positions:</strong> 1</p>
+                <p><strong>Salary:</strong> $18.00/hr</p>
+                <p><strong>Job Description:</strong> ${job.description}</p>
             `;
             tooltip.style.display = 'block';
             moveTooltip(e);
             logAction(`Hovered Preview Tooltip: ${jobId}`);
         }
 
-        /* FIX: Uses ClientX and ClientY to follow the mouse perfectly */
         function moveTooltip(e) {
             const tooltip = document.getElementById('hover-tooltip');
-            tooltip.style.left = (e.clientX + 15) + 'px';
-            tooltip.style.top = (e.clientY + 15) + 'px';
+            let xPos = e.clientX + 15;
+            let yPos = e.clientY + 15;
+            
+            // Boundary detection to prevent tooltip flying off-screen
+            if (xPos + 300 > window.innerWidth) { xPos = e.clientX - 315; }
+            if (yPos + 200 > window.innerHeight) { yPos = e.clientY - 215; }
+
+            tooltip.style.left = xPos + 'px';
+            tooltip.style.top = yPos + 'px';
         }
 
         function hideTooltip() { document.getElementById('hover-tooltip').style.display = 'none'; }
+
+        function toggleBtn(btn, category) {
+            btn.classList.toggle('selected');
+            logAction(`Toggled ${category} filter: ${btn.innerText}`);
+        }
 
         function searchJobs() {
             const query = document.getElementById('search-input').value.toLowerCase();
