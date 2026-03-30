@@ -1,0 +1,39 @@
+Tester Name,Student ID
+"Shaojia Zhu","1011260332"
+
+Sequence Number,Action Taken,Time Elapsed (Seconds)
+1,"Sidebar: Dashboard",0.00
+2,"Test Started",0.00
+3,"Sidebar: ON-CAMPUS JOBS",37.12
+4,"Hovered Preview Tooltip: 263670",37.81
+5,"Hovered Preview Tooltip: 263080",38.37
+6,"Hovered Preview Tooltip: 263002",38.42
+7,"Hovered Preview Tooltip: 263001",43.69
+8,"Hovered Preview Tooltip: 263670",44.37
+9,"Hovered Preview Tooltip: 263707",44.41
+10,"Hovered Preview Tooltip: 263009",46.55
+11,"Hovered Preview Tooltip: 263010",47.09
+12,"Opened Full Job Page: 263010",48.46
+13,"Clicked Apply on Job Page",61.54
+14,"Returned to Job List",66.08
+15,"Hovered Preview Tooltip: 263001",69.06
+16,"Hovered Preview Tooltip: 263001",69.62
+17,"Opened Advanced Filters",86.69
+18,"Toggled Position filter: Summer",89.57
+19,"Toggled Campus filter: St. George",90.31
+20,"Hovered Preview Tooltip: 263013",91.35
+21,"Hovered Preview Tooltip: 263018",91.80
+22,"Hovered Preview Tooltip: 263018",92.52
+23,"Hovered Preview Tooltip: 263013",92.93
+24,"Hovered Preview Tooltip: 263013",93.31
+25,"Hovered Preview Tooltip: 263670",94.07
+26,"Hovered Preview Tooltip: 263670",96.69
+27,"Hovered Preview Tooltip: 263013",98.35
+28,"Hovered Preview Tooltip: 263018",98.40
+29,"Hovered Preview Tooltip: 263018",99.53
+30,"Opened Full Job Page: 263018",100.01
+31,"Clicked Apply on Job Page",114.81
+32,"Returned to Job List",118.80
+33,"Sidebar: Dashboard",127.23
+34,"Opened Full Job Page: 263011",217.99
+35,"Test Ended",239.56
