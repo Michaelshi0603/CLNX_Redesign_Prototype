@@ -1,0 +1,26 @@
+Tester Name,Student ID
+"Ema Mylvaganam","0"
+
+Sequence Number,Action Taken,Time Elapsed (Seconds)
+1,"Sidebar: Dashboard",0.00
+2,"Test Started",0.00
+3,"Sidebar: ON-CAMPUS JOBS",19.50
+4,"Added to Shortlist: Job 263001",25.17
+5,"Added to Shortlist: Job 263002",26.07
+6,"Sidebar: Dashboard",29.71
+7,"Sidebar: ON-CAMPUS JOBS",33.10
+8,"Hovered Preview Tooltip: 263001",33.68
+9,"Opened Advanced Filters",35.29
+10,"Toggled Position filter: Summer",43.34
+11,"Toggled Campus filter: St. George",44.60
+12,"Hovered Preview Tooltip: 263670",45.15
+13,"Sidebar: Dashboard",55.72
+14,"Sidebar: ON-CAMPUS JOBS",57.70
+15,"Hovered Preview Tooltip: 263001",61.51
+16,"Hovered Preview Tooltip: 263001",61.93
+17,"Opened Full Job Page: 263001",67.49
+18,"Returned to Job List",69.27
+19,"Hovered Preview Tooltip: 263001",69.48
+20,"Hovered Preview Tooltip: 263001",69.76
+21,"Hovered Preview Tooltip: 263001",70.08
+22,"Test Ended",71.17
