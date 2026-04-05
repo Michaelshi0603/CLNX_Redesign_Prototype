@@ -1,0 +1,24 @@
+Tester Name,Student ID
+"1","2"
+
+Sequence Number,Action Taken,Time Elapsed (Seconds)
+1,"Sidebar: Dashboard",0.00
+2,"Test Started",0.00
+3,"Opened Full Job Page: 263001",34.65
+4,"Sidebar: ON-CAMPUS JOBS",41.44
+5,"Sidebar: Dashboard",42.62
+6,"Sidebar: ON-CAMPUS JOBS",46.83
+7,"Hovered Preview Tooltip: 263670",47.21
+8,"Hovered Preview Tooltip: 263080",47.26
+9,"Hovered Preview Tooltip: 263002",47.35
+10,"Hovered Preview Tooltip: 263001",47.51
+11,"Hovered Preview Tooltip: 263001",48.56
+12,"Sidebar: Dashboard",49.49
+13,"Sidebar: Search Overview",216.88
+14,"Sidebar: Work Study",217.63
+15,"Sidebar: ON-CAMPUS JOBS",218.44
+16,"Hovered Preview Tooltip: 263002",218.98
+17,"Hovered Preview Tooltip: 263001",219.06
+18,"Hovered Preview Tooltip: 263001",292.08
+19,"Hovered Preview Tooltip: 263002",292.29
+20,"Test Ended",293.93
